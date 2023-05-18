@@ -1,5 +1,9 @@
 package com.example.restservice.repositories;
 
-public class BookSlotRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import com.example.restservice.entities.BookSlot;
+
+public interface BookSlotRepository extends CrudRepository<BookSlot, String>{
     
 }
