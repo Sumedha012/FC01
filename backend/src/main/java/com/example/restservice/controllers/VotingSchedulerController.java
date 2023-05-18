@@ -23,11 +23,29 @@ import com.example.restservice.services.VoterIdInfoService;
 public class VotingSchedulerController {
 
 
-    @Autowired
+   
+	
+	
+	@Autowired
 	private AvailabilityService availabilityService;
+
+	@Autowired
+	private SigninService signinService;
+
+	@Autowired
+	private VoterIdInfoService voterIdInfoService;
+
+
 
 @RequestMapping(method=RequestMethod.GET, value= "/slotavailability")
 	public List<SlotAvail> availability(){
 		return availabilityService.getSlots();
 	}
+
+		@RequestMapping(method=RequestMethod.POST, value = "/initializevoterinfo")
+		public void VoterIdInfo() {
+			voterIdInfoService.initialize();
+	}
+
+	
 }
