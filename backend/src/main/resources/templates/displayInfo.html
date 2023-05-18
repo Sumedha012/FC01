@@ -68,8 +68,12 @@
     
     <p><center>Your <b>voter ID</b> details will be displayed here.<br>Click on the Book Slots button to book your slots.</center></p>
 
-    <div class="info">
+    <div class="info" th:object="${voteridinfo}">
      <p>Voter ID info</p>
+     <p th:text="${voteridinfo.name}"></p>
+     <p th:text="${voteridinfo.voterId}"></p>
+     <p th:text="${voteridinfo.phoneNumber}"></p>
+     <p th:text="${voteridinfo.wardNumber}"></p>
     </div>
 
     <div class="img" style="background-color:aliceblue;">
@@ -79,9 +83,11 @@
 
     </div>
 
-    <div>
-        <button class="button">Book Slots</button>
-    </div>
+  <form id="applicationForm"
+		action="#"
+		th:action="@{/slotavail}">
+    <button class="button">Book Slots</button>
+	</form>	
     
 </body>
 </html>

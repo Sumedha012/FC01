@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.example.restservice.entities.BookSlot;
 import com.example.restservice.entities.VoterIdInfo;
 import com.example.restservice.models.Phone;
+import com.example.restservice.services.AvailabilityService;
 import com.example.restservice.services.BookingService;
 import com.example.restservice.services.GenerateOtpService;
 import com.example.restservice.services.SigninService;
@@ -21,6 +22,9 @@ public class WebController {
 
 	@Autowired
 	private GenerateOtpService generateOtpService;
+
+	@Autowired
+	private AvailabilityService availabilityService;
     
     @Autowired
 	private SigninService signinService;
@@ -52,7 +56,7 @@ public class WebController {
         return "signup";
 	}
 	
-	@PostMapping(path = "/signin")
+	@GetMapping(path = "/signin")
 	public String login(@ModelAttribute Phone phone, Model model) {
         boolean signinSuccess = signinService.logIn(phone.getPhoneNumber(),phone.getOtp());
         if (signinSuccess) {
@@ -62,6 +66,12 @@ public class WebController {
         	return "displayInfo";
         }
         return "login";
+	}
+
+	@GetMapping(path = "/slotavail")
+	public String bookslots(Model model) {
+		model.addAttribute("availabilitylist", availabilityService.getSlots());
+		return "temp";
 	}
 
 	// @PostMapping(path = "/booking")

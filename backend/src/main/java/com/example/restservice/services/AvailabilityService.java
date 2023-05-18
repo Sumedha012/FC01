@@ -1,20 +1,23 @@
 package com.example.restservice.services;
 
-    import java.util.Arrays;
+import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.restservice.entities.SlotAvail;
+import com.example.restservice.repositories.SlotAvailRepository;
 
-    @Service
-    public class AvailabilityService {
+@Service
+public class AvailabilityService {
+    @Autowired
+    private SlotAvailRepository slotAvailRepository;
       
-        private List<SlotAvail> slots= Arrays.asList(new SlotAvail(7.5, 10), new SlotAvail(8.0, 5));
-        public List<SlotAvail> getSlots(){
-            
-            return slots;
-        }
+    public List<SlotAvail> getSlots(){
+        List<SlotAvail> slots = (List<SlotAvail>) slotAvailRepository.findAll();
+        return slots;
     }
+}
        
 

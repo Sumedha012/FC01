@@ -7,8 +7,7 @@
 	<form id="applicationForm"
 		action="#"
 		th:action="@{/signin}"
-		th:object="${phone}"
-		method="post">
+		th:object="${phone}">
 
 		<div style="display: inline-block;">
 			<input type="text" placeholder="Phone Number" th:field="*{phoneNumber}" />
