@@ -33,6 +33,12 @@ public class VotingSchedulerController {
 	private SigninService signinService;
 
 	@Autowired
+	private GenerateOtpService generateOtpService;
+
+	@Autowired
+	private BookingService bookingService;
+
+	@Autowired
 	private VoterIdInfoService voterIdInfoService;
 
 
@@ -47,5 +53,14 @@ public class VotingSchedulerController {
 			voterIdInfoService.initialize();
 	}
 
+	@RequestMapping(method=RequestMethod.PUT, value = "/booking")
+	public boolean booking(@RequestBody BookSlot bookSlot) {
+		return bookingService.slotBooking(bookSlot);
+	}
+
+	@RequestMapping(method=RequestMethod.POST, value = "/generateotp/{phonenumber}")
+	public boolean Login(@PathVariable  Long phonenumber) {
+		return generateOtpService.generateOtp(phonenumber);
+	}
 	
 }
