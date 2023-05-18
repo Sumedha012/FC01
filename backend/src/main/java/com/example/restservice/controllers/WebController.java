@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.restservice.entities.BookSlot;
+import com.example.restservice.entities.VoterIdInfo;
 import com.example.restservice.models.Phone;
 import com.example.restservice.services.BookingService;
 import com.example.restservice.services.GenerateOtpService;
 import com.example.restservice.services.SigninService;
+import com.example.restservice.services.VoterIdInfoService;
 
 @Controller
 public class WebController {
@@ -25,6 +27,9 @@ public class WebController {
 
 	@Autowired
 	private BookingService bookingService;
+
+	@Autowired
+	private VoterIdInfoService voterIdInfoService;
 
 	@GetMapping("/greeting")
 	public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
@@ -51,7 +56,10 @@ public class WebController {
 	public String login(@ModelAttribute Phone phone, Model model) {
         boolean signinSuccess = signinService.logIn(phone.getPhoneNumber(),phone.getOtp());
         if (signinSuccess) {
-            return "index";
+            VoterIdInfo voterIdInfo = voterIdInfoService.getInfo(phone.getPhoneNumber());
+			model.addAttribute("voteridinfo", voterIdInfo);
+			System.out.println(voterIdInfo.getName());
+        	return "displayInfo";
         }
         return "login";
 	}

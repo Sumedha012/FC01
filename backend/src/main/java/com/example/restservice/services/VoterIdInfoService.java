@@ -1,5 +1,7 @@
 package com.example.restservice.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,5 +32,16 @@ public class VoterIdInfoService {
         voterIdInfoRepository.save(new VoterIdInfo("DEF313233",9666777888L,"Prakash",5));
         voterIdInfoRepository.save(new VoterIdInfo("DEF414243",9554748382L,"Keerthi",5));
         
+    }
+
+    public VoterIdInfo getInfo(Long phonenumber)
+    {
+        List<VoterIdInfo> voterIdInfoList = (List<VoterIdInfo>) voterIdInfoRepository.findAll();
+        for(int i=0; i< voterIdInfoList.size(); i++){
+            if(voterIdInfoList.get(i).getPhoneNumber().equals(phonenumber)){
+                return voterIdInfoList.get(i);
+            }
+        }
+        return null;
     }
 }
