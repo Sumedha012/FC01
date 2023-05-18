@@ -1,0 +1,25 @@
+<html>
+<head>
+</head>
+<body>
+	<div class="center">
+	<h1>Registration</h1>
+	<form id="applicationForm"
+		action="#"
+		th:action="@{/signin}"
+		th:object="${phone}"
+		method="post">
+
+		<div style="display: inline-block;">
+			<input type="text" placeholder="Phone Number" th:field="*{phoneNumber}" />
+		</div>
+
+		<div style="display: inline-block;">
+			<input type="text" placeholder="OTP" th:field="*{otp}" />
+		</div>
+		
+		<input type="submit" value="Register">
+	</form>	
+
+</body>
+</html>
