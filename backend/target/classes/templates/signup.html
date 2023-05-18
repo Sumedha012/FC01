@@ -36,7 +36,7 @@
 .details input{
 	width: 145%;
 	margin-top: 0px;
-	margin-left: 10px;
+	margin-left: 20px;
 	padding: 0 30px;
 	height: 40px;
 	font-size: 16px;
@@ -69,7 +69,7 @@ input{
 	padding: 0 30px;
 }
 
-input[type="button"]{
+input[type="submit"]{
 	margin-top: 0px;
 	margin-left: 100px;
 	width: 50%;
@@ -82,7 +82,7 @@ input[type="button"]{
 	cursor: pointer;
 }
 
-input[type="button"]:hover{
+input[type="submit"]:hover{
 	border-color: black;
 	transition: .5s;
 }
@@ -98,16 +98,14 @@ input[type="button"]:hover{
 		method="post">
 		
 		<div class="details">
-			<div class="error" id="invalidUserError">Invalid username or password</div>
-			<div class="error" id="emailError">Enter a valid email</div>
 			<div style="display: inline-block;">
-				<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAASFBMVEUAAAD///99fX3Q0ND4+PjLy8taWlpLS0tTU1P7+/uioqLh4eGBgYFwcHDx8fG1tbUxMTFhYWF2dnaNjY3BwcGurq6YmJhGRkZwuQkhAAACVklEQVRoge2a7XaCMAxACwoC4sd0jPd/0+Emtg0t/UqaP82vHXPOrpRcqE1ExRSigAu4gAu4gAvYBT4PY50hxuGsgy8iW1z0Kz7l4p7AUucir1yluLoc3G5TXFXVt/Tctpfga7P+eSQnt8eV1VzFTRxykSX3sGBrIck96X3uesldsHehkClr+1PPL+4fdomGniy5jfoxOdnCVckk97mzcdUKI6jtVq0rKxnfKtUjQ5CRHVwyn7u9dQZkzNrW/bUEgVVWj4jJnlx0n3f8hYHq866/VnK6VU6PiMiBXDSfPfy1klNq28tfGAhWeXuETI7kJvsc4C+MJJ+D/LWSw60K9giJnMiN9jnCXys5pLaj/IURYVW0R4lkJG6wzwn+wgjyOclfK9ltVbJHkWRkrrfPCP5ayXu1PWP4C8PDKjSPAslEXKfPX1Rch88XivsLwQarHhUdWC71QgarXSs5ulu89XnUclRF/Y5Z5p4wh0g+wP+tWDVsc/gPrr6Vlz5D7jfqq0njvsoZ+KxwqV9Oms+TykUmbx4cyheR3Nt/DnG1DY9KQ6lNaw5t62N8OWzIk8zRbjIBeVBzKGTrBkB7oDz1HMKGfmfLo5BHmEveAu1u8j7kxzZH+2Pxna5NuSSycyP/uuajkZvks8dPl8f0M9ty0T5zHb5wHTdxHbBxHSlyHaJyHRtzHZRztQa4miFc7R+uhhdXi4+rqcnVxuVqXHO16rmGEzjGMdgGUNhGbtiGjNjGqj4rn3uQjNZfGIbROa5hQa7xSL6BUK4R2PxRwAVcwAVcwAVsjV9XQCIzaTVDdwAAAABJRU5ErkJggg=="height="20px" width="">
+				<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHkAAAB5CAMAAAAqJH57AAAAY1BMVEX///8AAAD7+/v09PRpaWnv7+/X19d+fn5WVla8vLzCwsKOjo4vLy/o6Ojl5eVmZmaqqqqwsLCdnZ0NDQ1eXl7Ozs6jo6OUlJTf398qKio1NTUVFRV1dXWIiIg+Pj5HR0ciIiKg4QbfAAAC30lEQVRoge2a6XKrMAyFEYSlLCEJkLAmvP9T3rZppxQkm4uROp36/GbyxcbWcoTjWFlZ/Q25dRXHmTTVq65RUwBAEYhyg7CFT3WuHNftYapBDOyl8F1HKXI7A0MvBM7nYACZQ3ZagiGSAB8LhAwvAmRkr191579ZMQoGOLGTHwS585jBLwQYIGEmL67yl3xWcECD4cBKHhRk3nCiAsODEVwryXDmI1/VZMacFWrIJRs50pDZIpnb6cgN06V2dWC2nLWCfPkxcsxERouCqdgO910DTtmyxkENHvnS1e2HVkyXQu9irT9Vh5u5JqGqMOi4y94LAW7ZmwwiQbcC3fuIgRvuivdNWFMFEmC0q2LKEnOVS7JEN+egTcZNhuw3C/IoQ3b65aKFtrtakjsZsotEUCFbCougtQg5Q8i5CBk7Y1yV30xYE30XiaBok8NtVjyFXCwpGxBbdCNCRu2SUASNFt6VBBk1PwteX+pDqG8RiYwV0PpXJH7jntxVAo37RIzG1Jdwo1sigPu4XyNxt9AgKoMmuiz9hpvfPvxV6yrCKo8GU5/SJYx2ZdfxNB5Mi3SfcIsU1dGnd9oYplXK5E+p7ZyYtoPZ6yatEzymJNNHRrO4c6bQPZK65l1ZZHQFSbs9XVyvI/L/TEr1ZPl7+LLxqzAYlK0Kq/9b8qIsRIMMp0CP1YqnDDwt1RwrP+qfgfvmHKd0RJNXtof1RFOVW50tyqN7Vxf1848iEG0NarpZll7tRjIdUlZrczQlKgUBslNr51lKmXRmnnaIp5LRANvVTS5VMmzBDc6Zqa0WoEb0GhkbHp5mtkQpNQU7W3d8F+PW37Lsndy8+L/f9m7jLlc9z1tqx28UslA7up1o3x60HtbuebF785tdV7EfLF5xTLR9E7HZK96ZHGe+6c7qW2a35eDlg8s/BKlCBF7K+OJelUST2mGMLjJDiKey4DQcyjIfToH419dWVlZWVlZWv1f/ALmzHtuQKb/mAAAAAElFTkSuQmCC"height="20px" width="">
 			</div>
 			<div style="display: inline-block;">
 				<input type="text" placeholder="Phone Number" th:field="*{phoneNumber}" />
 			</div>
 		</div>
-		<input type="submit" value="Generate OTP" />
+		<input type="submit" value="Get OTP" />
 	</form>
 </body>
 </html>
