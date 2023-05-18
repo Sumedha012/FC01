@@ -36,8 +36,8 @@ public class GenerateOtpService{
     }
     private boolean phoneNumberPresent(Long phonenumber){
         List<VoterIdInfo> voterIdInfoList = (List<VoterIdInfo>) voterIdInfoRepository.findAll();
-        for(int i=0; i< voterIdInfoList.size(); i++){        
-            if(voterIdInfoList.get(i).getPhoneNumber() == phonenumber){
+        for(int i=0; i< voterIdInfoList.size(); i++){
+            if(voterIdInfoList.get(i).getPhoneNumber().equals(phonenumber)){
                 return true;
             }
         }
