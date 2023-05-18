@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.restservice.entities.BookSlot;
 import com.example.restservice.models.Phone;
+import com.example.restservice.services.BookingService;
 import com.example.restservice.services.GenerateOtpService;
 import com.example.restservice.services.SigninService;
 
@@ -20,6 +22,9 @@ public class WebController {
     
     @Autowired
 	private SigninService signinService;
+
+	@Autowired
+	private BookingService bookingService;
 
 	@GetMapping("/greeting")
 	public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
@@ -50,7 +55,16 @@ public class WebController {
         }
         return "login";
 	}
+
+	// @PostMapping(path = "/booking")
+	// public String booking(@ModelAttribute BookSlot bookSlot, Model model) {
+	// 	 bookingService.slotBooking(bookSlot);
+	// 	 return "index"; 
+	// }
+
+	
     
 
 }
+
 

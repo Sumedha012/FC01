@@ -16,6 +16,7 @@ import com.example.restservice.entities.SlotAvail;
 import com.example.restservice.services.AvailabilityService;
 import com.example.restservice.services.BookingService;
 import com.example.restservice.services.GenerateOtpService;
+import com.example.restservice.services.SlotAvailService;
 // import com.example.restservice.services.SigninService;
 import com.example.restservice.services.VoterIdInfoService;
 
@@ -41,6 +42,9 @@ public class VotingSchedulerController {
 	@Autowired
 	private VoterIdInfoService voterIdInfoService;
 
+	@Autowired
+	private SlotAvailService slotAvailService;
+
 
 
 @RequestMapping(method=RequestMethod.GET, value= "/slotavailability")
@@ -49,11 +53,11 @@ public class VotingSchedulerController {
 	}
 
 		@RequestMapping(method=RequestMethod.POST, value = "/initializevoterinfo")
-		public void VoterIdInfo() {
+		public void voterIdInfo() {
 			voterIdInfoService.initialize();
 	}
 
-	@RequestMapping(method=RequestMethod.PUT, value = "/booking")
+	@RequestMapping(method=RequestMethod.POST, value = "/booking")
 	public boolean booking(@RequestBody BookSlot bookSlot) {
 		return bookingService.slotBooking(bookSlot);
 	}
@@ -62,6 +66,12 @@ public class VotingSchedulerController {
 	public boolean Login(@PathVariable  Long phonenumber) {
 		return generateOtpService.generateOtp(phonenumber);
 	}
-	
+
+	@RequestMapping(method=RequestMethod.POST, value = "/initializeslotavail")
+		public void initializeSlotAvail() {
+			slotAvailService.initialize();
+	}
+
+
 }
 

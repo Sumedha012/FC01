@@ -19,6 +19,8 @@ public class SlotAvail {
     public int getAvailability() {
         return availability;
     }
+    public SlotAvail() {
+    }
     public SlotAvail(Double slotStartTime, int availability) {
         this.slotStartTime = slotStartTime;
         this.availability = availability;
