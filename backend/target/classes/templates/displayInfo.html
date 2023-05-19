@@ -2,61 +2,19 @@
 <html lang="en">
 <head>
     <style>
-    body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  .topnav {
-    overflow: hidden;
-    background-color:  rgb(33, 33, 70);
-    height: 60px;
-    width: 100%;
-    display: flex;
-              justify-content: space-between;
-              align-items: center;
-              text-align: center;           
-  
-  }
-  
-  .topnav a { 
-    
-    color: #f2f2f2;
-    width:100%;
-    padding: 30px 30px;
-    text-decoration:none;
-    font-size: 20px;
-    font-weight: 30%;
-    float:justify;
-    
-  }
-  
-  .topnav a:hover {
-    background-color: #ddd;
-    color: black;
-    
-  }
-  
-  .topnav a.active {
-    background-color: rgb(46, 172, 46);
-    
-    color: white;
-    
-  }
-  
-  .first {
-    position: relative;
-    text-align: center;
-    color: rgb(33, 33, 70);
-  }
-  .centered {
-    position: absolute;
-    top: 30%;
-    left: 30%;
-    transform: translate(-50%, -50%);
-    font-size: 50px
-  }
-  
+.topnav {
+  overflow: hidden;
+  background-color: #1a76bb;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 25px;
+}
   body{
     font-size: large;
   }
@@ -65,11 +23,12 @@
     display:inline-block;
     background-color: white;
     width: 25%;
-    height:50px;
+    height:300px;
     border: 5px solid whitesmoke;
-    padding: 50px;
-    margin: 20px;
-    text-align: center;
+    padding: 10px;
+    margin-left: 210px;
+    /* margin: 20px; */
+    /* text-align: center; */
 }
 
 .img{
@@ -86,27 +45,18 @@
   border: none;
   color: white;
   background-color: #1a76bb;
-  padding: 10px;
+  padding: 15px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 20px;
-  margin: 27px;
+  margin-left: 350px;
+  margin-top: 5px;
   cursor: pointer;
 }
 
 
     </style>
-    <div class="first">
-        <img src="https://cloudfront.penguin.co.in/wp-content/uploads/2019/05/Election_Header.jpg" style="height:400px;width:100%">
-        <div class="centered"><h4>THE VOTING SCHEDULER</h4></div>
-      </div>
-      <div class="topnav">
-        <a href="home.html">HOME</a>
-        <a href="aboutUs.html">ABOUT US</a>
-        <a href="signup.html">LOGIN</a>
-        
-      </div>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -118,49 +68,40 @@
         <a class="active" href="#VoterDetails">Voter's Details</a>
     </div>
     
-    <p><center>Your <b>voter ID</b> details will be displayed here.<br>Click on the Book Slots button to book your slots.</center></p>
+    <p><center><h4>Your <b>Voter-ID</b> details are being displayed here.<br>Click on the button to book your slots.</h4></center></p>
 
-    <div class="info">
-     <p>Voter ID info</p>
+    <div class="info" th:object="${voteridinfo}">
+     <b><p>Voter ID Info:</p></b>
+     <div style="display: flex; justify-content: space-between;">
+      <b><p>NAME:</p></b>
+     <p th:text="${voteridinfo.name}"></p>
+    </div>
+    <div style="display: flex; justify-content: space-between;">
+      <b><p>VOTER-ID:</p></b>
+     <p th:text="${voteridinfo.voterId}"></p>
+    </div>
+     <div style="display: flex; justify-content: space-between;">
+      <b><p>PH.NO:</p></b>
+     <p th:text="${voteridinfo.phoneNumber}"></p>
+    </div>
+     <div style="display: flex; justify-content: space-between;">
+      <b><p>WARD.NO:</p></b>
+     <p th:text="${voteridinfo.wardNumber}"></p>
+    </div>
     </div>
 
     <div class="img" style="background-color:aliceblue;">
-        <marquee width="70%" direction="right" height=270px scrollamount="15" >
+        <marquee width="70%" direction="right" height=320px scrollamount="15" >
             <img src="https://media.istockphoto.com/id/1097228434/photo/close-up-of-human-hand-casting-and-inserting-a-vote-and-choosing-and-making-a-decision-what.jpg?s=612x612&w=0&k=20&c=gpO2ZzhWoj4wn6MzxlwclyAjBQh0LuMr5gAMCIzK9qM=" width="510">
             </marquee>
 
     </div>
 
-    <div>
-        <button class="button">Book Slots</button>
-    </div>
-    <div class="cont">
-        <table style="background-color: rgb(33, 33, 70);font-size: 20px;
-        color: white ;
-        padding: 20px 20px;
-        width:100%;text-align: justify">
-            <tr>
-                <td><h3 style="color:white">CONTACT US:<br></h3></td>
-            </tr>
-            <tr>
-                <td>PHONE NUMBERS</td>
-                <td>23052220</td>
-               <td> 23052221</td>
-               <td>EMAIL ID</td>
-               <td><button><a href="complaints@eci.gov.in"><img src="https://i.pinimg.com/originals/84/6a/03/846a03c6760f83f3a0e92609bca9cebf.jpg" style="width:35px; height:35px"></button></a></td>
-              </tr>
-            <tr>
-                <td>SOCIAL MEDIA</td>
-            <td><a href="https://www.instagram.com/ecisveep/?hl=en"> <button><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/640px-Instagram_icon.png"style="width:35px; height:35px"></button></a></span>
-            <td><a href="https://faq.whatsapp.com/518562649771533"><button><img src="https://cdn-icons-png.flaticon.com/512/124/124034.png?w=360"style="width:35px; height:35px"></button></a></span>
-            <td><a href="https://www.facebook.com/ECI/"><button><img src="https://cdn-icons-png.flaticon.com/512/124/124010.png"style="width:35px; height:35px"></button></a></span>
-            <td><a href="https://twitter.com/SpokespersonECI"><button><img src="https://cdn-icons-png.flaticon.com/512/124/124021.png"style="width:35px; height:35px"></button></a></span>
-            </tr>
-        </table>
-      </div>
-    
+  <form id="applicationForm"
+		action="#"
+		th:action="@{/slotavail}">
+    <button class="button">Book Slots</button>
+	</form>	
     
 </body>
 </html>
-
-    

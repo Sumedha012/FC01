@@ -23,11 +23,12 @@
     display:inline-block;
     background-color: white;
     width: 25%;
-    height:50px;
+    height:300px;
     border: 5px solid whitesmoke;
-    padding: 50px;
-    margin: 20px;
-    text-align: center;
+    padding: 10px;
+    margin-left: 210px;
+    /* margin: 20px; */
+    /* text-align: center; */
 }
 
 .img{
@@ -44,12 +45,13 @@
   border: none;
   color: white;
   background-color: #1a76bb;
-  padding: 10px;
+  padding: 15px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 20px;
-  margin: 27px;
+  margin-left: 350px;
+  margin-top: 5px;
   cursor: pointer;
 }
 
@@ -66,18 +68,30 @@
         <a class="active" href="#VoterDetails">Voter's Details</a>
     </div>
     
-    <p><center>Your <b>voter ID</b> details will be displayed here.<br>Click on the Book Slots button to book your slots.</center></p>
+    <p><center><h4>Your <b>Voter-ID</b> details are being displayed here.<br>Click on the button to book your slots.</h4></center></p>
 
     <div class="info" th:object="${voteridinfo}">
-     <p>Voter ID info</p>
+     <b><p>Voter ID Info:</p></b>
+     <div style="display: flex; justify-content: space-between;">
+      <b><p>NAME:</p></b>
      <p th:text="${voteridinfo.name}"></p>
+    </div>
+    <div style="display: flex; justify-content: space-between;">
+      <b><p>VOTER-ID:</p></b>
      <p th:text="${voteridinfo.voterId}"></p>
+    </div>
+     <div style="display: flex; justify-content: space-between;">
+      <b><p>PH.NO:</p></b>
      <p th:text="${voteridinfo.phoneNumber}"></p>
+    </div>
+     <div style="display: flex; justify-content: space-between;">
+      <b><p>WARD.NO:</p></b>
      <p th:text="${voteridinfo.wardNumber}"></p>
+    </div>
     </div>
 
     <div class="img" style="background-color:aliceblue;">
-        <marquee width="70%" direction="right" height=270px scrollamount="15" >
+        <marquee width="70%" direction="right" height=320px scrollamount="15" >
             <img src="https://media.istockphoto.com/id/1097228434/photo/close-up-of-human-hand-casting-and-inserting-a-vote-and-choosing-and-making-a-decision-what.jpg?s=612x612&w=0&k=20&c=gpO2ZzhWoj4wn6MzxlwclyAjBQh0LuMr5gAMCIzK9qM=" width="510">
             </marquee>
 
