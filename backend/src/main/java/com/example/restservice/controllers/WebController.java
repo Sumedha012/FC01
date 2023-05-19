@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -16,6 +17,8 @@ import com.example.restservice.services.BookingService;
 import com.example.restservice.services.GenerateOtpService;
 import com.example.restservice.services.SigninService;
 import com.example.restservice.services.VoterIdInfoService;
+
+import jakarta.websocket.server.PathParam;
 
 @Controller
 public class WebController {
@@ -34,6 +37,8 @@ public class WebController {
 
 	@Autowired
 	private VoterIdInfoService voterIdInfoService;
+
+	String voterId;
 
 	@GetMapping("/greeting")
 	public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
@@ -62,7 +67,7 @@ public class WebController {
         if (signinSuccess) {
             VoterIdInfo voterIdInfo = voterIdInfoService.getInfo(phone.getPhoneNumber());
 			model.addAttribute("voteridinfo", voterIdInfo);
-			System.out.println(voterIdInfo.getName());
+			voterId=voterIdInfo.getVoterId();
         	return "displayInfo";
         }
         return "login";
@@ -71,14 +76,14 @@ public class WebController {
 	@GetMapping(path = "/slotavail")
 	public String bookslots(Model model) {
 		model.addAttribute("availabilitylist", availabilityService.getSlots());
-		return "temp";
+		return "slotBooking";
 	}
 
-	// @PostMapping(path = "/booking")
-	// public String booking(@ModelAttribute BookSlot bookSlot, Model model) {
-	// 	 bookingService.slotBooking(bookSlot);
-	// 	 return "index"; 
-	// }
+	@GetMapping(path = "/booking/{slotStartTime}")
+	public String booking(@PathVariable int slotStartTime, Model model) {
+		 bookingService.slotBooking(new BookSlot(voterId, slotStartTime));
+		 return "index"; 
+	}
 
 	
     

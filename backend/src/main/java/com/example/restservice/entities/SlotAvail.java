@@ -7,13 +7,13 @@ import jakarta.persistence.Id;
 public class SlotAvail {
 
     @Id
-    private Double slotStartTime;
+    private int slotStartTime;
     private int availability;
     
-    public Double getSlotStartTime() {
+    public int getSlotStartTime() {
         return slotStartTime;
     }
-    public void setSlotStartTime(Double slotStartTime) {
+    public void setSlotStartTime(int slotStartTime) {
         this.slotStartTime = slotStartTime;
     }
     public int getAvailability() {
@@ -21,7 +21,7 @@ public class SlotAvail {
     }
     public SlotAvail() {
     }
-    public SlotAvail(Double slotStartTime, int availability) {
+    public SlotAvail(int slotStartTime, int availability) {
         this.slotStartTime = slotStartTime;
         this.availability = availability;
     }

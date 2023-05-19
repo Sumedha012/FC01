@@ -16,6 +16,9 @@ public class BookingService {
     BookSlotRepository bookSlotRepository;
 
     public boolean slotBooking(BookSlot bookSlot){
+        System.out.println("xxxxxx");
+        System.out.println(bookSlot.getSlotStartTime());
+        System.out.println(bookSlot.getVoterId());
         
         SlotAvail slotAvail= slotAvailRepository.findById(bookSlot.getSlotStartTime()).orElse(null);
         if(slotAvail.getAvailability()==0)

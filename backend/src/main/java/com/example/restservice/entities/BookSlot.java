@@ -8,11 +8,11 @@ public class BookSlot {
     
     @Id
     private String voterId;
-    public BookSlot(String voterId, Double slotStartTime) {
+    public BookSlot(String voterId, int slotStartTime) {
         this.voterId = voterId;
         this.slotStartTime = slotStartTime;
     }
-    private Double slotStartTime;
+    private int slotStartTime;
     
     public BookSlot() {
     }
@@ -22,10 +22,10 @@ public class BookSlot {
     public void setVoterId(String voterId) {
         this.voterId = voterId;
     }
-    public Double getSlotStartTime() {
+    public int getSlotStartTime() {
         return slotStartTime;
     }
-    public void setSlotStartTime(Double slotStartTime) {
+    public void setSlotStartTime(int slotStartTime) {
         this.slotStartTime = slotStartTime;
     }
     

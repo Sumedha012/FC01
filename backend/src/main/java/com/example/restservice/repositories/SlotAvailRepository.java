@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.example.restservice.entities.SlotAvail;
 
-public interface SlotAvailRepository extends CrudRepository<SlotAvail, Double>{
+public interface SlotAvailRepository extends CrudRepository<SlotAvail, Integer>{
     
 }
